@@ -6,18 +6,15 @@ import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/states.dart';
 
 class DoneTasksScreen extends StatelessWidget {
-  const DoneTasksScreen({Key key}) : super(key: key);
+  const DoneTasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AppCubit , AppState>(
-      listener: (context , state){},
-      builder: (context , state)
-      {
+    return BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) {},
+      builder: (context, state) {
         var tasks = AppCubit.get(context).doneTasks;
-        return tasksBuilder(
-            tasks: tasks
-        );
+        return tasksBuilder(tasks: tasks);
       },
     );
   }

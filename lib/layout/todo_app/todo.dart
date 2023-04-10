@@ -1,10 +1,17 @@
+//import 'package:conditional_builder/conditional_builder.dart';
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_app/component/components.dart';
+import 'package:todo_app/component/constant.dart';
+import 'package:todo_app/modules/archived_tasks/archivedTask.dart';
+import 'package:todo_app/modules/done_tasks/doneTask.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:todo_app/shared/cubit/cubit.dart';
 import 'package:todo_app/shared/cubit/states.dart';
+import '../../modules/new_tasks/newTask.dart';
 
 class HomeLayout extends StatelessWidget {
   var scaffoldKey = GlobalKey<ScaffoldState>();
@@ -20,7 +27,7 @@ class HomeLayout extends StatelessWidget {
       create: (BuildContext context) => AppCubit()..createDatabase(),
       child: BlocConsumer<AppCubit, AppState>(
         listener: (BuildContext context, AppState state) {
-          if(state is AppInsertDatabaseState){
+          if (state is AppInsertDatabaseState) {
             Navigator.pop(context);
           }
         },
@@ -67,8 +74,8 @@ class HomeLayout extends StatelessWidget {
 //                     });
                   }
                 } else {
-                  scaffoldKey.currentState
-                      ?.showBottomSheet(
+                  scaffoldKey.currentState!
+                      .showBottomSheet(
                         (context) => Container(
                           color: Colors.white,
                           padding: EdgeInsets.all(20),

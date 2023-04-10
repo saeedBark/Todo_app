@@ -1,4 +1,3 @@
-import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/component/components.dart';
@@ -13,9 +12,7 @@ class NewTasksScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var tasks = AppCubit.get(context).newTasks;
-        return tasksBuilder(
-            tasks: tasks
-        );
+        return tasksBuilder(tasks: tasks);
       },
     );
   }
